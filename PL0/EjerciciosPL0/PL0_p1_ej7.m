@@ -49,4 +49,6 @@ disp(complejas);
 figure('Name','Raices del polinomio seleccionado','NumberTitle','off') %Titulo de la ventana
 plot(1:size(reales),real(reales),'gx', 1:size(complejas), imag(complejas), 'bo');
 title('Raices del polinomio');
+xlabel('Raíz (por orden de aparición)');
+ylabel('Valor');
 legend('Reales', 'Imaginarias');
