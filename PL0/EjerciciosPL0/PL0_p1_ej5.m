@@ -33,6 +33,7 @@ surf(X,Y,Z);
 colorbar         % Aporta visibilidad a los plots
 xlabel('X');
 ylabel('Y');
+zlabel('Z');
 title('Diagrama de superfricie');
 
 % Malla
@@ -40,6 +41,7 @@ subplot(2,2,3)
 mesh(X,Y,Z);
 xlabel('X');
 ylabel('Y');
+zlabel('Z');
 title('Diagrama de malla');
 
 % Contorno
@@ -47,4 +49,5 @@ subplot(2,2,4)
 contourf(X,Y,Z);
 xlabel('X');
 ylabel('Y');
+zlabel('Z');
 title('Diagrama de contorno');
