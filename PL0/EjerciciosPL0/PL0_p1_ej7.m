@@ -9,6 +9,7 @@ ha de realizar los siguientes pasos:
 % según la siguiente sintaxis:
 % [solución, reales, complejas]=raices(poli_1, poli_2)
 %pruebagithub
+%ayoooooooooo
 % a) Recoge los arrays con los que se crean los polinomios.
 
 % b) Solicita si la solución se aplica a uno de los polinomios o al 
