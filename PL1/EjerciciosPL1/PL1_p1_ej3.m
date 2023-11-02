@@ -1,9 +1,46 @@
 %{
-Ejercicio 2. Aproximación de funciones
-Una de las aplicaciones inmediatas de las redes neuronales es la 
-aproximación de funciones. Paraello, Matlab dispone de una red optimizada, 
-fitnet, con la que se trabajará en este ejercicio. El objetivo en este 
-caso es aproximar la función f = sinc(t) tal y como se muestra a continuación:
+Ejercicio 3. Aproximación de funciones (II)
+En este ejercicio, se estudiarán en detalle las herramientas que 
+facilita Matlab para el diseño y pruebade redes neuronales ejecutando 
+el siguiente código de ejemplo:
 %}
-
 clear all; close all;
+
+%% Simplefit
+% Carga de datos de ejemplo disponibles en la toolbox
+[inputsSF,targetsSF] = simplefit_dataset;
+% Creación de la red
+hiddenLayerSizeSF = 10;
+netSF = fitnet(hiddenLayerSizeSF);
+% División del conjunto de datos para entrenamiento, validación y test
+netSF.divideParam.trainRatio = 70/100;
+netSF.divideParam.valRatio = 15/100;
+netSF.divideParam.testRatio = 15/100;
+% Entrenamiento de la red
+[netSF,trSF] = train(netSF,inputsSF,targetsSF);
+% Prueba
+outputsSF = netSF(inputsSF);
+errorsSF = gsubtract(outputsSF,targetsSF);
+performanceSF = perform(netSF,targetsSF,outputsSF)
+% Visualización de la red
+view(netSF)
+
+%% Bodyfat
+% Carga de datos de ejemplo disponibles en la toolbox
+[inputsBF,targetsBF] = bodyfat_dataset;
+% Creación de la red
+hiddenLayerSizeBF = 10;
+netBF = fitnet(hiddenLayerSizeBF);
+% División del conjunto de datos para entrenamiento, validación y test
+netBF.divideParam.trainRatio = 70/100;
+netBF.divideParam.valRatio = 15/100;
+netBF.divideParam.testRatio = 15/100;
+% Entrenamiento de la red
+[netBF,trBF] = train(netBF,inputsBF,targetsBF);
+% Prueba
+outputsBF = netBF(inputsBF);
+errorsBF = gsubtract(outputsBF,targetsBF);
+performanceBF = perform(netBF,targetsBF,outputsBF)
+% Visualización de la red
+view(netBF)
+
