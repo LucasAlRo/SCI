@@ -38,7 +38,7 @@ Métodos de entrenamiento utilizados:
 
 %% TRAINRP
 % ==================
-hiddenLayerSize = 5; % número de neuronas en la capa oculta
+hiddenLayerSize = 1; % número de neuronas en la capa oculta
 
 netRP = fitnet(hiddenLayerSize,'trainrp');
 
@@ -59,7 +59,7 @@ ylabel('Vector Target T');
 
 %% TRAINLM
 % ==================
-hiddenLayerSize = 5; % número de neuronas en la capa oculta
+hiddenLayerSize = 1; % número de neuronas en la capa oculta
 
 netLM = fitnet(hiddenLayerSize,'trainlm');
 
@@ -80,7 +80,7 @@ ylabel('Vector Target T');
 
 %% TRAINBFG
 % ==================
-hiddenLayerSize = 5; % número de neuronas en la capa oculta
+hiddenLayerSize = 1; % número de neuronas en la capa oculta
 
 netBFG = fitnet(hiddenLayerSize,'trainbfg');
 
@@ -101,7 +101,7 @@ ylabel('Vector Target T');
 
 %% TRAINGD
 % ==================
-hiddenLayerSize = 5; % número de neuronas en la capa oculta
+hiddenLayerSize = 1; % número de neuronas en la capa oculta
 
 netGD = fitnet(hiddenLayerSize,'traingd');
 
