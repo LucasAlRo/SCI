@@ -3,14 +3,6 @@ clear all;
 
 Ts=100e-3;
 
-% Mostrar
-x=salida_x.signals.values;
-y=salida_y.signals.values;
-figure;
-plot(x,y);
-grid on;
-hold on; 
-
 % Generar N posiciones aleatorias, simular y guardar en variables
 N=30
 E_d_vec=[];
@@ -20,7 +12,7 @@ W_vec=[];
 for i=1:N
 refx=10*rand-5;
 refy=10*rand-5;
-sim('PositionControl.slx')
+sim('PL1_P2_PositionControl.slx')
 E_d_vec=[E_d_vec;E_d.signals.values];
 E_theta_vec=[E_theta_vec;E_theta.signals.values];
 V_vec=[V_vec; V.signals.values];
@@ -28,6 +20,14 @@ W_vec=[W_vec; W.signals.values];
 end
 inputs=[E_d_vec'; E_theta_vec'];
 outputs=[V_vec'; W_vec'];
+
+% Mostrar
+x=salida_x.signals.values;
+y=salida_y.signals.values;
+figure;
+plot(x,y);
+grid on;
+hold on; 
 
 hiddenLayerSize = 12;
 net = fitnet(hiddenLayerSize);
@@ -39,7 +39,7 @@ net = train(net, inputs, outputs);
 
 refx=rand;
 refy=rand;
-
+%%
 % Creación de la gráfica
 figure(1);
 title ("Comparación Caja Negra y Red Neuronal");
@@ -48,12 +48,9 @@ grid on;
 
 % Simulación caja negra
 sim('PL1_P2_PositionControl.slx');
-plot(salida_x.signals.values, salida_y.data.signals.values);
+plot(salida_x.signals.values, salida_y.signals.values);
 
 % Simulación red neuronal
 sim('PL1_P2_PositionControlNet.slx');
 plot(salida_x_redN.signals.values, salida_y_redN.signals.values);
 legend('Caja Negra','Red Neuronal');
-
-figure(2);
-plot(E_theta);
