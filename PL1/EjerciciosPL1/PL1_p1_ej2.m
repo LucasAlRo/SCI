@@ -38,7 +38,7 @@ Métodos de entrenamiento utilizados:
 
 %% TRAINRP
 % ==================
-hiddenLayerSize = 1; % número de neuronas en la capa oculta
+hiddenLayerSize = 25; % número de neuronas en la capa oculta
 
 netRP = fitnet(hiddenLayerSize,'trainrp');
 

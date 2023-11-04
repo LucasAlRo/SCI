@@ -13,7 +13,7 @@ clear all; close all;
 hiddenLayerSizeSF = 10;
 netSF = fitnet(hiddenLayerSizeSF);
 % División del conjunto de datos para entrenamiento, validación y test
-netSF.divideParam.trainRatio = 70/100;
+netSF.divideParam.trainRatio = 75/100;
 netSF.divideParam.valRatio = 15/100;
 netSF.divideParam.testRatio = 15/100;
 % Entrenamiento de la red
@@ -29,17 +29,17 @@ view(netSF)
 % Carga de datos de ejemplo disponibles en la toolbox
 [inputsBF,targetsBF] = bodyfat_dataset;
 % Creación de la red
-hiddenLayerSizeBF = 10;
-netBF = fitnet(hiddenLayerSizeBF);
+hiddenLayerSizeBF = 20;
+netBF = fitnet(hiddenLayerSizeBF, 'trainbfg');
 % División del conjunto de datos para entrenamiento, validación y test
-netBF.divideParam.trainRatio = 70/100;
-netBF.divideParam.valRatio = 15/100;
-netBF.divideParam.testRatio = 15/100;
+netBF.divideParam.trainRatio = 60/100;
+netBF.divideParam.valRatio = 20/100;
+netBF.divideParam.testRatio = 20/100;
 % Entrenamiento de la red
 [netBF,trBF] = train(netBF,inputsBF,targetsBF);
 % Prueba
-outputsBF = netBF(inputsBF);
-errorsBF = gsubtract(outputsBF,targetsBF);
+outputsBF = netBF(inputsBF)
+errorsBF = gsubtract(outputsBF,targetsBF)
 performanceBF = perform(netBF,targetsBF,outputsBF)
 % Visualización de la red
 view(netBF)
